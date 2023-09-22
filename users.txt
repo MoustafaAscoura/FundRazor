@@ -1,2 +1,2 @@
-{'fname': 'moustafa', 'lname': 'ascoura', 'email': 'askoura@yahoo.com', 'phone': '01204037783', 'ownprojectsids': [1], 'password': 'r\x84|\x83CAAI'}
+{'fname': 'moustafa', 'lname': 'ascoura', 'email': 'askoura@yahoo.com', 'phone': '01204037783', 'ownprojectsids': [1, 2], 'password': 'r\x84|\x83CAAI'}
 {'fname': 'ahmed', 'lname': 'reda', 'email': 'askoura@gmail.com', 'phone': '01551563193', 'ownprojectsids': [], 'password': 'r\x84|\x83CAAI'}

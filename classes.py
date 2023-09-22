@@ -60,15 +60,28 @@ class User():
         newproject.owner = self.email
         self.save()
         Project.save()
-        
+    
     def view_projects(self):
-        print("Your Projects are: ")
-        for project_id in self.ownprojectsids:
-            project = Project.projects[project_id]
-            print ( list(project.__dict__.values()))
+        if len(Project.projects):
+            print("All Projects are: ")
+            for project in Project.projects.values():
+                print("=================")
+                project.print_details()
+        else:
+            print("There are no projects to view!")
+
+    def view_own_projects(self):
+        if len(self.ownprojectsids):
+            print("Your Projects are: ")
+            for project_id in self.ownprojectsids:
+                project = Project.projects[project_id]
+                project.print_details()
+        else:
+            print("You have no projects to view!")
+
 
     def edit_project(self):
-        self.view_projects()
+        self.view_own_projects()
         edit_id = input("Enter project id to edit: ")
         if edit_id not in self.ownprojectsids:
             print("Id not found!")
@@ -101,7 +114,7 @@ class User():
         Project.save()
    
     def delete_project(self):
-        self.view_projects()
+        self.view_own_projects()
         del_id = input("Enter project id to delete: ")
         if int(del_id) not in self.ownprojectsids:
             print("Id not found!")
@@ -165,6 +178,11 @@ class Project():
         self.details = details
         self.target = target
         self.end = end    
+
+    def print_details(self):
+        for key,value in self.__dict__.items():
+                spaces = (10-len(key))*" "
+                print(f"{key}:{spaces}{value}")
 
     @classmethod
     def save(cls):
